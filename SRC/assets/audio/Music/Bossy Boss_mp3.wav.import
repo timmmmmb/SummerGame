@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bossy Boss_mp3.wav-d5ed4c7bb6efccae743703dd749d6d37.sample"
+
+[deps]
+
+source_file="res://assets/audio/Music/Bossy Boss_mp3.wav"
+dest_files=[ "res://.import/Bossy Boss_mp3.wav-d5ed4c7bb6efccae743703dd749d6d37.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Alarm_Loop_00.wav-01376b111b8f1f77353eb93fc5ec7c7b.sample"
+
+[deps]
+
+source_file="res://assets/audio/SFX/Alarm_Loop_00.wav"
+dest_files=[ "res://.import/Alarm_Loop_00.wav-01376b111b8f1f77353eb93fc5ec7c7b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

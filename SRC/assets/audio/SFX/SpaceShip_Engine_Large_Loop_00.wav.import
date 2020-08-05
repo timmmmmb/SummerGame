@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpaceShip_Engine_Large_Loop_00.wav-ef59c6980b9d37bc5a5d1d070c56ceec.sample"
+
+[deps]
+
+source_file="res://assets/audio/SFX/SpaceShip_Engine_Large_Loop_00.wav"
+dest_files=[ "res://.import/SpaceShip_Engine_Large_Loop_00.wav-ef59c6980b9d37bc5a5d1d070c56ceec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

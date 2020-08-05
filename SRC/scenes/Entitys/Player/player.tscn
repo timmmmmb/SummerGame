@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/hero/hero_animations.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scenes/Entitys/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/SFX/slash.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/SFX/hit.wav" type="AudioStream" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 6.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.77325, 6.8998 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.35, 0.35 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 10.3993, -9.58366 )
+frames = ExtResource( 1 )
+animation = "idle"
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="AttackHitboxRight" type="Area2D" parent="."]
+position = Vector2( 11.2149, 0.815628 )
+monitoring = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitboxRight"]
+position = Vector2( -1.4674, -0.398601 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AttackHitboxLeft" type="Area2D" parent="."]
+position = Vector2( 8.65111, 0.205193 )
+monitoring = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitboxLeft"]
+position = Vector2( -18.5055, -0.407814 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="SlashPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="HitEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 0.0457527
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="body_entered" from="AttackHitboxRight" to="." method="_HitDetection"]
+[connection signal="body_entered" from="AttackHitboxLeft" to="." method="_HitDetection"]

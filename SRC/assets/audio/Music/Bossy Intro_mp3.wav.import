@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bossy Intro_mp3.wav-892ebe5ac76cad9c2ad423ceed4f0ace.sample"
+
+[deps]
+
+source_file="res://assets/audio/Music/Bossy Intro_mp3.wav"
+dest_files=[ "res://.import/Bossy Intro_mp3.wav-892ebe5ac76cad9c2ad423ceed4f0ace.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
