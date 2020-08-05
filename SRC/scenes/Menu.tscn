@@ -184,6 +184,94 @@ margin_right = 308.0
 margin_bottom = 223.0
 custom_fonts/font = ExtResource( 4 )
 text = "Back"
+
+[node name="MultiplayerLobby" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -81.5
+margin_right = 125.0
+margin_bottom = 81.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="MultiplayerLobby"]
+margin_right = 267.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 4 )
+text = "Lobby"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="MultiplayerLobby"]
+margin_top = 48.0
+margin_right = 267.0
+margin_bottom = 126.0
+columns = 2
+
+[node name="NameLabel" type="Label" parent="MultiplayerLobby/GridContainer"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 3 )
+text = "Name:"
+
+[node name="NameInput" type="LineEdit" parent="MultiplayerLobby/GridContainer"]
+margin_left = 74.0
+margin_right = 267.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+
+[node name="IPLabel" type="Label" parent="MultiplayerLobby/GridContainer"]
+margin_top = 46.0
+margin_right = 70.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 3 )
+text = "IP:"
+
+[node name="IPInput" type="LineEdit" parent="MultiplayerLobby/GridContainer"]
+margin_left = 74.0
+margin_top = 41.0
+margin_right = 267.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MultiplayerLobby"]
+margin_top = 130.0
+margin_right = 267.0
+margin_bottom = 163.0
+alignment = 1
+
+[node name="Back" type="Button" parent="MultiplayerLobby/HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 69, 33 )
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+
+[node name="Connect" type="Button" parent="MultiplayerLobby/HBoxContainer"]
+margin_left = 73.0
+margin_right = 178.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 3 )
+text = "Connect"
+
+[node name="Create" type="Button" parent="MultiplayerLobby/HBoxContainer"]
+margin_left = 182.0
+margin_right = 267.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 3 )
+text = "Create"
 [connection signal="pressed" from="MainMenu/MainMenuGrid/Singleplayer" to="." method="_on_Singleplayer_pressed"]
+[connection signal="pressed" from="MainMenu/MainMenuGrid/Mulitplayer" to="." method="_on_Mulitplayer_pressed"]
 [connection signal="pressed" from="MainMenu/MainMenuGrid/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="LevelSelect/Back" to="." method="_on_Back_pressed"]
+[connection signal="text_changed" from="MultiplayerLobby/GridContainer/NameInput" to="." method="_on_NameInput_text_changed"]
+[connection signal="pressed" from="MultiplayerLobby/HBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="MultiplayerLobby/HBoxContainer/Connect" to="." method="_on_Connect_pressed"]
+[connection signal="pressed" from="MultiplayerLobby/HBoxContainer/Create" to="." method="_on_Create_pressed"]
