@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/images/enemys/baby boxer/Baby Boxer-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://scenes/enemys/babyboxer.gd" type="Script" id=2]
+[ext_resource path="res://scenes/enemys/BabyBoxer.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -118,11 +118,6 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 1920, 128, 48 )
 
-[sub_resource type="AtlasTexture" id=46]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 288, 128, 48 )
-
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 1 )
@@ -131,89 +126,94 @@ region = Rect2( 0, 288, 128, 48 )
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 336, 128, 48 )
+region = Rect2( 0, 288, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 384, 128, 48 )
+region = Rect2( 0, 336, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 432, 128, 48 )
+region = Rect2( 0, 384, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 480, 128, 48 )
+region = Rect2( 0, 432, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 528, 128, 48 )
+region = Rect2( 0, 480, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 576, 128, 48 )
+region = Rect2( 0, 528, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 624, 128, 48 )
+region = Rect2( 0, 576, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 672, 128, 48 )
+region = Rect2( 0, 624, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=33]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 720, 128, 48 )
+region = Rect2( 0, 672, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=34]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 768, 128, 48 )
+region = Rect2( 0, 720, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=35]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 816, 128, 48 )
+region = Rect2( 0, 768, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=36]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 864, 128, 48 )
+region = Rect2( 0, 816, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 912, 128, 48 )
+region = Rect2( 0, 864, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 960, 128, 48 )
+region = Rect2( 0, 912, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1008, 128, 48 )
+region = Rect2( 0, 960, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1056, 128, 48 )
+region = Rect2( 0, 1008, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 4
 atlas = ExtResource( 1 )
+region = Rect2( 0, 1056, 128, 48 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 1 )
 region = Rect2( 0, 1104, 128, 48 )
 
-[sub_resource type="SpriteFrames" id=42]
+[sub_resource type="SpriteFrames" id=43]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
@@ -230,26 +230,26 @@ animations = [ {
 "name": "death",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 46 ) ],
+"frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "idleAwake",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
 "loop": false,
 "name": "attack",
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=43]
+[sub_resource type="CapsuleShape2D" id=44]
 radius = 6.17352
 height = 0.690804
 
-[sub_resource type="CapsuleShape2D" id=44]
+[sub_resource type="CapsuleShape2D" id=45]
 radius = 4.57654
 height = 51.7545
 
-[sub_resource type="CircleShape2D" id=45]
+[sub_resource type="CircleShape2D" id=46]
 radius = 113.5
 
 [node name="BabyBoxer" type="KinematicBody2D"]
@@ -260,13 +260,13 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 30.5856, -4.36937 )
-frames = SubResource( 42 )
+frames = SubResource( 43 )
 animation = "idle"
-frame = 4
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 43 )
+shape = SubResource( 44 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -280,7 +280,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShapeRight"]
-shape = SubResource( 44 )
+shape = SubResource( 45 )
 
 [node name="AttackShapeLeft" type="Area2D" parent="."]
 position = Vector2( -40.1188, 1.52588e-05 )
@@ -292,7 +292,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackShapeLeft"]
 position = Vector2( 0.397202, 0.305084 )
-shape = SubResource( 44 )
+shape = SubResource( 45 )
 
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2( 0, -0.323532 )
@@ -302,17 +302,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
-shape = SubResource( 45 )
-
-[node name="Trigger2" type="Area2D" parent="."]
-position = Vector2( 0, -0.323532 )
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger2"]
-shape = SubResource( 45 )
+shape = SubResource( 46 )
 
 [node name="Delay" type="Timer" parent="."]
 wait_time = 2.0
@@ -323,5 +313,4 @@ one_shot = true
 [connection signal="body_entered" from="AttackShapeLeft" to="." method="_on_AttackShapeLeft_body_entered"]
 [connection signal="body_exited" from="AttackShapeLeft" to="." method="_on_AttackShapeLeft_body_exited"]
 [connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
-[connection signal="body_entered" from="Trigger2" to="." method="_on_Trigger_body_entered"]
 [connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]

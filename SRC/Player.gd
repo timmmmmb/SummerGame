@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://scenes/Entity.gd"
 
 export (int) var run_speed = 300
 export (int) var run_attack_distance = 200
@@ -10,7 +10,7 @@ var jumping = false
 var attacking = false
 var attackCount = 0
 var dashAttack = false
-var dying = false
+var hit = false
 
 func get_input():
 	velocity.x = 0
@@ -22,7 +22,7 @@ func get_input():
 	if jump and is_on_floor():
 		jumping = true
 		velocity.y = jump_speed
-	if attack:
+	if attack && !attacking:
 		attackCount = (attackCount+1)%3
 		attacking = true
 		get_node("AttackTimer").start()
@@ -47,7 +47,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	if jumping and is_on_floor():
 		jumping = false
-	if velocity.x != 0 || velocity.y < 0 || attacking || dashAttack:
+	if velocity.x != 0 || velocity.y < 0 || attacking || dashAttack || dying || hit:
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.animation = "idle"
@@ -70,6 +70,24 @@ func _physics_process(delta):
 
 
 func _on_AttackTimer_timeout():
-	attacking = false
 	dashAttack = false
 	attackCount = 0
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "attack0" || $AnimatedSprite.animation == "attack1" || $AnimatedSprite.animation == "attack2":
+		attacking = false
+		$AttackHitboxRight.monitoring = false
+		$AttackHitboxLeft.monitoring = false
+		
+func _HitDetection(body):
+	print("hit")
+	body.hit(damage)
+
+
+func _on_AnimatedSprite_frame_changed():
+	if ($AnimatedSprite.animation == "attack0" || $AnimatedSprite.animation == "attack1" || $AnimatedSprite.animation == "attack2") && $AnimatedSprite.frame == 3:
+		if $AnimatedSprite.flip_h:
+			$AttackHitboxLeft.monitoring = true
+		else:
+			$AttackHitboxRight.monitoring = true

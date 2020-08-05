@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/images/hero/hero_animations.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.09903
 height = 7.67973
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 10.1108
+height = 8.06905
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -26,4 +30,34 @@ playing = true
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="AttackHitboxRight" type="Area2D" parent="."]
+position = Vector2( 11.2149, 0.815628 )
+monitoring = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitboxRight"]
+position = Vector2( 2.9301, -0.488346 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AttackHitboxLeft" type="Area2D" parent="."]
+position = Vector2( 8.65111, 0.205193 )
+monitoring = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitboxLeft"]
+position = Vector2( -22.6338, -0.407814 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="body_entered" from="AttackHitboxRight" to="." method="_HitDetection"]
+[connection signal="body_entered" from="AttackHitboxLeft" to="." method="_HitDetection"]
