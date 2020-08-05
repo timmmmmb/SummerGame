@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/landing.png-2f3078891c99cdfa961a58de610d3eac.stex"
+path="res://.import/background Planet1.png-56feaa031dc22dca7d1dba97f24824c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/hero/add on sprites/add on sprites/landing.png"
-dest_files=[ "res://.import/landing.png-2f3078891c99cdfa961a58de610d3eac.stex" ]
+source_file="res://assets/images/planets/background Planet1.png"
+dest_files=[ "res://.import/background Planet1.png-56feaa031dc22dca7d1dba97f24824c6.stex" ]
 
 [params]
 

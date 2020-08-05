@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/planets/planet1.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/images/planets/background Planet1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemys/babyboxer.tscn" type="PackedScene" id=4]
+
+[node name="Level1" type="Node2D"]
+position = Vector2( 0, -1.22772 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 1.0
+margin_top = -375.0
+margin_right = 1280.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 0
+format = 1
+tile_data = PoolIntArray( -65536, 0, 0, -65532, 0, 0, -65528, 0, 0, -65524, 0, 0, -65520, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 454.698, -10.5187 )
+
+[node name="BabyBoxer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 906.739, -4.2937 )

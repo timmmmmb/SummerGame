@@ -13,6 +13,7 @@ func _on_Quit_pressed():
 func _on_Back_pressed():
 	get_node("MultiplayerLobby").visible = false
 	get_node("LevelSelect").visible = false
+	get_node("Credits").visible = false
 	get_node("MainMenu").visible = true
 
 func _on_TextField_text_changed(new_text):
@@ -39,3 +40,12 @@ func _on_Connect_pressed():
 
 func _load_game():
 	get_tree().change_scene('res://Game.tscn')
+
+
+func _on_Credits_pressed():
+	get_node("MainMenu").visible = false
+	get_node("Credits").visible = true
+
+
+func _on_Level1_pressed():
+	get_tree().change_scene("res://scenes/Levels/Level1.tscn")

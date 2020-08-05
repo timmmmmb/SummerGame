@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/run attack.png-6e12a314fda7769a40aff549ecb49eb3.stex"
+path="res://.import/run attack.png-a19abe837c9a9ddec272246c5a5a4958.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/hero/add on sprites/add on sprites/run attack.png"
-dest_files=[ "res://.import/run attack.png-6e12a314fda7769a40aff549ecb49eb3.stex" ]
+source_file="res://assets/images/hero/add on sprites/run attack.png"
+dest_files=[ "res://.import/run attack.png-a19abe837c9a9ddec272246c5a5a4958.stex" ]
 
 [params]
 
