@@ -1,22 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/images/hero/hero_animations.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scenes/Entitys/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/SFX/slash.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/SFX/hit.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/SFX/jetpack.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/images/UI/BarEnergie.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/UI/Under.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/UI/BarHealth.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/UI/Over.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 6.0
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14, 3.5 )
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 14, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 14, 3.5 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.77325, 6.8998 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -36,8 +40,7 @@ polygon = PoolVector2Array( 3.8397, 6.86701, 3.86501, -6.93733, -3.84367, -7, -3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 10.1301, -9.40417 )
 frames = ExtResource( 1 )
-animation = "jetpackUp"
-frame = 1
+animation = "idle"
 playing = true
 
 [node name="AttackTimer" type="Timer" parent="."]
@@ -78,7 +81,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashHitboxRight"]
 position = Vector2( 4.7851, -0.815628 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -91,13 +94,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashHitboxLeft"]
 position = Vector2( -24.6511, -0.205193 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="SlashPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -109,6 +112,37 @@ attenuation = 0.0457527
 [node name="JetpackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 attenuation = 0.366021
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -80.22
+margin_top = 72.8435
+margin_right = 559.78
+margin_bottom = 136.843
+rect_scale = Vector2( 0.25, 0.25 )
+value = 50.0
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 9 )
+texture_progress = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelBar" type="TextureProgress" parent="."]
+margin_left = -79.7713
+margin_top = 69.6339
+margin_right = 560.229
+margin_bottom = 133.634
+rect_scale = Vector2( 0.05, 0.05 )
+value = 50.0
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 9 )
+texture_progress = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
@@ -116,3 +150,4 @@ attenuation = 0.366021
 [connection signal="body_entered" from="AttackHitboxLeft" to="." method="_HitDetection"]
 [connection signal="body_entered" from="DashHitboxRight" to="." method="_HitDetection"]
 [connection signal="body_entered" from="DashHitboxLeft" to="." method="_HitDetection"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]

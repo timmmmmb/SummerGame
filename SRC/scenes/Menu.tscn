@@ -377,6 +377,8 @@ stream = ExtResource( 7 )
 [connection signal="pressed" from="MainMenu/MainMenuGrid/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="Credits/CreditGrid/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="LevelSelect/Level/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="LevelSelect/Level/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="LevelSelect/Level/Level3" to="." method="_on_Level3_pressed"]
 [connection signal="pressed" from="LevelSelect/Back" to="." method="_on_Back_pressed"]
 [connection signal="text_changed" from="MultiplayerLobby/GridContainer/NameInput" to="." method="_on_NameInput_text_changed"]
 [connection signal="pressed" from="MultiplayerLobby/HBoxContainer/Back" to="." method="_on_Back_pressed"]

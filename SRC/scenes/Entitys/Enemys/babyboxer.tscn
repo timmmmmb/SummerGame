@@ -55,6 +55,11 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 1584, 128, 48 )
 
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 288, 128, 48 )
+
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 1 )
@@ -119,11 +124,6 @@ region = Rect2( 0, 1872, 128, 48 )
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 1920, 128, 48 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 288, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
@@ -227,19 +227,19 @@ animations = [ {
 "name": "right",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "idle",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "sleeping",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": false,
 "name": "death",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 24 ) ],
-"loop": true,
-"name": "idleAwake",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
@@ -253,12 +253,12 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=45]
+[sub_resource type="CircleShape2D" id=45]
+radius = 113.5
+
+[sub_resource type="CapsuleShape2D" id=46]
 radius = 4.57654
 height = 51.7545
-
-[sub_resource type="CircleShape2D" id=46]
-radius = 113.5
 
 [sub_resource type="RectangleShape2D" id=47]
 extents = Vector2( 5.42951, 5.55293 )
@@ -273,77 +273,48 @@ script = ExtResource( 2 )
 position = Vector2( 30.5856, -4.36937 )
 frames = SubResource( 44 )
 animation = "idle"
-frame = 1
 playing = true
 
-[node name="AttackShapeRight" type="Area2D" parent="."]
-position = Vector2( 40.9132, 0.397217 )
-rotation = 1.5708
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShapeRight"]
-shape = SubResource( 45 )
-
-[node name="AttackShapeLeft" type="Area2D" parent="."]
-position = Vector2( -40.1188, 1.52588e-05 )
-rotation = 1.5708
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackShapeLeft"]
-position = Vector2( 0.397202, 0.305084 )
-shape = SubResource( 45 )
-
-[node name="AttackHitboxRight" type="Area2D" parent="."]
-position = Vector2( 40.9132, 0.397217 )
-rotation = 1.5708
-monitoring = false
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitboxRight"]
-shape = SubResource( 45 )
-
-[node name="AttackHitboxLeft" type="Area2D" parent="."]
-position = Vector2( -40.1188, 1.52588e-05 )
-rotation = 1.5708
-monitoring = false
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackHitboxLeft"]
-position = Vector2( 0.397202, 0.305084 )
-shape = SubResource( 45 )
-
 [node name="Trigger" type="Area2D" parent="."]
-position = Vector2( 0, -0.218857 )
+visible = false
 collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource( 45 )
+
+[node name="AttackShape" type="Area2D" parent="."]
+position = Vector2( 40.9132, 0.397217 )
+rotation = 1.5708
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape"]
+shape = SubResource( 46 )
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+position = Vector2( 40.9132, 0.397217 )
+rotation = 1.5708
+monitoring = false
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 shape = SubResource( 46 )
 
 [node name="Delay" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.314018, -1.47663 )
+[node name="Body" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 47 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -353,9 +324,7 @@ position = Vector2( -0.250351, 0 )
 stream = ExtResource( 4 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
-[connection signal="body_entered" from="AttackShapeRight" to="." method="_on_AttackShapeRight_body_entered"]
-[connection signal="body_entered" from="AttackShapeLeft" to="." method="_on_AttackShapeLeft_body_entered"]
-[connection signal="body_entered" from="AttackHitboxRight" to="." method="_HitDetection"]
-[connection signal="body_entered" from="AttackHitboxLeft" to="." method="_HitDetection"]
 [connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
+[connection signal="body_entered" from="AttackShape" to="." method="_on_Enemy_in_Range"]
+[connection signal="body_entered" from="AttackHitbox" to="." method="_HitDetection"]
 [connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]

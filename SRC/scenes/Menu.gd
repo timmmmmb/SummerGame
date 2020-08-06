@@ -56,3 +56,11 @@ func _on_Level1_pressed():
 func _on_MenuMusic_finished():
 	currentSong = (currentSong+1)%maxSongs
 	get_node("MenuMusic"+str(currentSong)).play()
+
+
+func _on_Level2_pressed():
+	get_tree().change_scene("res://scenes/Levels/Level2.tscn")
+
+
+func _on_Level3_pressed():
+	get_tree().change_scene("res://scenes/Levels/Level3.tscn")
