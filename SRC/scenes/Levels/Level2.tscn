@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/audio/Music/Story of Maple_mp3.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/Music/Mellow Boss_mp3.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/Entitys/Enemys/babyboxer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Levels/Level2.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Enviroment/SpawnPoint.tscn" type="PackedScene" id=4]
@@ -50,16 +50,18 @@ position = Vector2( 1010.87, 144.151 )
 [node name="BabyBoxer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 603.967, 157.347 )
 scale = Vector2( -1, 1 )
-max_health = 10
+max_health = 50
 damage = 5
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 88, -6.77228 )
 max_health = 10
 damage = 4
-jetpackfuel = 500
+jetpackfuel = 200
+max_jetpackfuel = 200
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource( 1 )
 autoplay = true
+attenuation = 0.116629
 [connection signal="death" from="BabyBoxer" to="." method="_on_BabyBoxer_death"]

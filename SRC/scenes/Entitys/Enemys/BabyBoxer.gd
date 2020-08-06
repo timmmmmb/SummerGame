@@ -2,21 +2,24 @@ extends "res://scenes/Entitys/Entity.gd"
 
 export (int) var gravity = 2400
 var velocity = Vector2()
-var state = STATE.SLEEPING
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	if STATE.SLEEPING:
+	if state == STATE.SLEEPING:
 		$AnimatedSprite.animation = "sleeping"
+	elif state == STATE.RUNNING:
+		$AnimatedSprite.animation = "running"
 	elif dying:
 		$AnimatedSprite.animation = "death"
-	elif isHit:
+	elif state == STATE.HIT:
 		$AnimatedSprite.animation = "hit"
 	elif state == STATE.ATTACKING:
 		$AnimatedSprite.animation = "attack"
 	else:
-		setDirection(get_parent().get_node("Player").position.x < position.x)
 		$AnimatedSprite.animation = "idle"
+		setDirection(get_parent().get_node("Player").position.x < position.x)
+		if abs(get_parent().get_node("Player").position.x - position.x) > 50 && $DelayMovement.time_left == 0:
+			state = STATE.RUNNING
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func _on_AnimatedSprite_animation_finished():
@@ -25,9 +28,17 @@ func _on_AnimatedSprite_animation_finished():
 		$Delay.start()
 	elif $AnimatedSprite.animation == "death":
 		get_parent().remove_child(self)
-	elif $AnimatedSprite.animation == "hit": 
-		isHit = false
-		
+	elif $AnimatedSprite.animation == "running": 
+		$AnimatedSprite.animation = "idle"
+		if direction:
+			position.x -= 61
+		else:
+			position.x += 61
+		state = STATE.IDLE
+		$DelayMovement.start(0.0)
+	elif $AnimatedSprite.animation == "hit":
+		afterHit()
+
 func _on_Delay_timeout():
 	$AttackShape.monitoring = false
 	$AttackShape.monitoring = true
