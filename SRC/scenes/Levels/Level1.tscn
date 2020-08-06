@@ -81,6 +81,7 @@ position = Vector2( 96, -14.7723 )
 position = Vector2( 88, -6.77228 )
 max_health = 10
 damage = 4
+jetpackfuel = 500
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource( 9 )

@@ -60,15 +60,13 @@ func attackLeft():
 	if !delay && !attacking && !dying:
 		attackingLeft = true
 		attacking = true
-		if $AnimatedSprite.offset.x == 0:
-			$AnimatedSprite.offset.x = -62
+		$AnimatedSprite.offset.x = -62
 
 func attackRight():
 	if !delay && !attacking && !dying:
 		attacking = true
 		attackingLeft = false
-		if $AnimatedSprite.offset.x != 0:
-			$AnimatedSprite.offset.x = 0
+		$AnimatedSprite.offset.x = 0
 
 func _on_AttackShapeLeft_body_entered(body):
 	attackLeft()
@@ -81,9 +79,9 @@ func _on_AnimatedSprite_frame_changed():
 		if $AnimatedSprite.frame == 12:
 			$Attack.play(0.0)
 			if attackingLeft:
-					$AttackHitboxLeft.monitoring = true
+				$AttackHitboxLeft.monitoring = true
 			else:
-					$AttackHitboxRight.monitoring = true
+				$AttackHitboxRight.monitoring = true
 		elif $AnimatedSprite.frame == 13:
 			$AttackHitboxRight.monitoring = false
 			$AttackHitboxLeft.monitoring = false

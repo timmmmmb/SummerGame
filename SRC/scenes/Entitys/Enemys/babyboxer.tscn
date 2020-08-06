@@ -93,37 +93,37 @@ region = Rect2( 0, 1632, 128, 48 )
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1632, 128, 48 )
+region = Rect2( 0, 1680, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1680, 128, 48 )
+region = Rect2( 0, 1728, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1728, 128, 48 )
+region = Rect2( 0, 1776, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1776, 128, 48 )
+region = Rect2( 0, 1824, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1824, 128, 48 )
+region = Rect2( 0, 1872, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1872, 128, 48 )
+region = Rect2( 0, 1920, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1920, 128, 48 )
+region = Rect2( 0, 288, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
@@ -133,92 +133,92 @@ region = Rect2( 0, 288, 128, 48 )
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 288, 128, 48 )
+region = Rect2( 0, 336, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 336, 128, 48 )
+region = Rect2( 0, 384, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 384, 128, 48 )
+region = Rect2( 0, 432, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 432, 128, 48 )
+region = Rect2( 0, 480, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 480, 128, 48 )
+region = Rect2( 0, 528, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 528, 128, 48 )
+region = Rect2( 0, 576, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 576, 128, 48 )
+region = Rect2( 0, 624, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=33]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 624, 128, 48 )
+region = Rect2( 0, 672, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=34]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 672, 128, 48 )
+region = Rect2( 0, 720, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=35]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 720, 128, 48 )
+region = Rect2( 0, 768, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=36]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 768, 128, 48 )
+region = Rect2( 0, 816, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 816, 128, 48 )
+region = Rect2( 0, 864, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 864, 128, 48 )
+region = Rect2( 0, 912, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 912, 128, 48 )
+region = Rect2( 0, 960, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 960, 128, 48 )
+region = Rect2( 0, 1008, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1008, 128, 48 )
+region = Rect2( 0, 1056, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1056, 128, 48 )
+region = Rect2( 0, 1104, 128, 48 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1104, 128, 48 )
+region = Rect2( 0, 1632, 128, 48 )
 
 [sub_resource type="SpriteFrames" id=44]
 animations = [ {
@@ -232,25 +232,25 @@ animations = [ {
 "name": "idle",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 17 ) ],
-"loop": false,
-"name": "hit",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": false,
 "name": "death",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 25 ) ],
+"frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "idleAwake",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
 "loop": false,
 "name": "attack",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 43 ) ],
+"loop": false,
+"name": "hit",
+"speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=45]
@@ -349,12 +349,13 @@ __meta__ = {
 stream = ExtResource( 3 )
 
 [node name="HitEffect" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.250351, 0 )
 stream = ExtResource( 4 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="body_entered" from="AttackShapeRight" to="." method="_on_AttackShapeRight_body_entered"]
 [connection signal="body_entered" from="AttackShapeLeft" to="." method="_on_AttackShapeLeft_body_entered"]
-[connection signal="body_entered" from="AttackHitboxRight" to="." method="_on_HitboxRight_body_entered"]
+[connection signal="body_entered" from="AttackHitboxRight" to="." method="_HitDetection"]
 [connection signal="body_entered" from="AttackHitboxLeft" to="." method="_HitDetection"]
 [connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
 [connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]
