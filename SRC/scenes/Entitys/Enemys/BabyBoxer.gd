@@ -1,7 +1,6 @@
 extends "res://scenes/Entitys/Entity.gd"
 
 export (int) var gravity = 2400
-var velocity = Vector2()
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -38,6 +37,7 @@ func _on_AnimatedSprite_animation_finished():
 		$DelayMovement.start(0.0)
 	elif $AnimatedSprite.animation == "hit":
 		afterHit()
+	$AttackHitbox.monitoring = false
 
 func _on_Delay_timeout():
 	$AttackShape.monitoring = false

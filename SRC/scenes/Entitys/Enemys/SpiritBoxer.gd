@@ -1,10 +1,6 @@
 extends "res://scenes/Entitys/Entity.gd"
 
-var velocity = Vector2()
 var attackCount = 0
-
-func _ready():
-	directionDistance = 104
 	
 func _physics_process(_delta):
 	velocity.x = 0
@@ -57,7 +53,13 @@ func _on_AnimatedSprite_animation_finished():
 		$Delay.start(0.0)
 	if $AnimatedSprite.animation == "hit":
 		afterHit()
-
+	elif $AnimatedSprite.animation == "death":
+		get_parent().remove_child(self)
+	$HitboxAttack2.monitoring = false
+	$HitboxAttack1_1.monitoring = false
+	$HitboxAttack1_2.monitoring = false
+	$HitboxAttack0.monitoring = false
+		
 func _on_AnimatedSprite_frame_changed():
 	if $AnimatedSprite.animation == "attack0":
 		if $AnimatedSprite.frame == 1 || $AnimatedSprite.frame == 4:

@@ -8,8 +8,8 @@ export (int) var run_speed = 200
 var directionDistance = 0
 var direction = true
 signal death
+var velocity = Vector2()
 var state = STATE.SLEEPING
-var attackFrame = 0
 # possible states idle, running and attacking
 enum STATE{
 	SLEEPING,
@@ -36,17 +36,10 @@ func hit(incomingDamage):
 		die()
 	else:
 		$HitEffect.play(0.0)
-		if state == STATE.ATTACKING:
-			attackFrame = $AnimatedSprite.frame
-		else:
-			attackFrame = 0
-		state = STATE.HIT
+#		state = STATE.HIT
 		
 func afterHit():
-	if attackFrame != 0:
-		state = STATE.ATTACKING
-		$AnimatedSprite.frame = attackFrame
-		attackFrame = 0
+	state = STATE.IDLE
 
 func setDirection(newDirection):
 	if direction == newDirection:

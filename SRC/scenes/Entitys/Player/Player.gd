@@ -5,7 +5,6 @@ export (int) var run_attack_distance = 200
 export (int) var jump_speed = -400
 export (int) var gravity = 2400
 
-var velocity = Vector2()
 var attackCount = 0
 var dashReady = false
 export var jetpackfuel = 100
@@ -15,10 +14,10 @@ export var attackingEnabled = true
 
 func _ready():
 	health = max_health
-	$HealthBar.max_value = max_health
-	$HealthBar.value = health
-	$FuelBar.max_value = max_jetpackfuel
-	$FuelBar.value = jetpackfuel
+	$GUI/HealthBar.max_value = max_health
+	$GUI/HealthBar.value = health
+	$GUI/FuelBar.max_value = max_jetpackfuel
+	$GUI/FuelBar.value = jetpackfuel
 	
 func get_input():
 	if !state == STATE.SPECIAL:
@@ -63,16 +62,14 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	$FuelBar.value = jetpackfuel
-	$HealthBar.value = health
+	$GUI/FuelBar.value = jetpackfuel
+	$GUI/HealthBar.value = health
 	velocity.y += gravity * delta
 	if (state == STATE.JUMPING or state == STATE.FLYING) and is_on_floor():
 		state = STATE.IDLE
-	if velocity.x != 0 || velocity.y < 0 || state == STATE.ATTACKING || state == STATE.SPECIAL || dying :
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.animation = "idle"
-		$AnimatedSprite.stop()
+		$JetpackSound.stop()
+	if !(velocity.x != 0 || velocity.y < 0 || state == STATE.ATTACKING || state == STATE.SPECIAL || dying):
+		state = STATE.IDLE
 	if dying:
 		$AnimatedSprite.animation = "death"
 	elif state == STATE.HIT:
@@ -97,9 +94,15 @@ func _physics_process(delta):
 	elif velocity.x != 0:
 		$AnimatedSprite.animation = "right"
 		setDirection(velocity.x >= 0)
+	elif state == STATE.IDLE:
+		$AnimatedSprite.animation = "idle"
 	if velocity.x == 0 || state == STATE.ATTACKING:
 		$DashTimer.stop()
 		dashReady = false
+	if !direction:
+		$GUI.rect_scale.x = -1
+	else:
+		$GUI.rect_scale.x = 1
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func _on_AttackTimer_timeout():
@@ -111,7 +114,14 @@ func _on_AnimatedSprite_animation_finished():
 	elif $AnimatedSprite.animation == "hit":
 		afterHit()
 	elif $AnimatedSprite.animation == "runAttack":
+		if direction:
+			position.x += 29
+		else:
+			position.x -= 29
 		state = STATE.IDLE
+	
+	$DashHitbox.monitoring = false
+	$AttackHitbox.monitoring = false
 
 func _HitDetection(body):
 	body.hit(damage)
@@ -125,13 +135,10 @@ func _on_AnimatedSprite_frame_changed():
 			$AttackHitbox.monitoring = false
 	elif $AnimatedSprite.animation == "runAttack":
 		if $AnimatedSprite.frame == 1:	
-				velocity.x += 400
 				$DashHitbox.monitoring = true
 		elif $AnimatedSprite.frame == 2:
 			$SlashPlayer.play(0.0)
 			$DashHitbox.monitoring = false
-		elif $AnimatedSprite.frame == 4:
-			velocity.x = 0
 
 func respawn():
 	position = respawnPosition

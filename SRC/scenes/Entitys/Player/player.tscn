@@ -10,13 +10,13 @@
 [ext_resource path="res://assets/images/UI/BarHealth.png" type="Texture" id=8]
 [ext_resource path="res://assets/images/UI/Over.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.77325, 6.8998 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6.4536, 5.47708 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 14, 3.5 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -57,12 +57,13 @@ polygon = PoolVector2Array( 3.8397, 6.86701, 3.86501, -6.93733, -3.84367, -7, -3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 10.1301, -9.40417 )
 frames = ExtResource( 1 )
-animation = "idle"
+animation = "blaster_right"
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 visible = false
@@ -75,7 +76,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="DashHitbox" type="Area2D" parent="."]
 visible = false
@@ -88,13 +89,20 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashHitbox"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="HealthBar" type="TextureProgress" parent="."]
+[node name="GUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="GUI"]
 margin_left = -80.22
 margin_top = 72.8435
 margin_right = 559.78
-margin_bottom = 136.843
+margin_bottom = 136.844
 rect_scale = Vector2( 0.25, 0.25 )
 value = 50.0
 texture_under = ExtResource( 7 )
@@ -104,7 +112,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FuelBar" type="TextureProgress" parent="."]
+[node name="FuelBar" type="TextureProgress" parent="GUI"]
 margin_left = -79.7713
 margin_top = 69.6339
 margin_right = 560.229

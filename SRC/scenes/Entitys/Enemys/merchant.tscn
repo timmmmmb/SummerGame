@@ -1,0 +1,92 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/images/enemys/merchant/idle.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/enemys/merchant/walk.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/SFX/slash.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/SFX/Clank_8.wav" type="AudioStream" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "right",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 8.40451, 10.3599 )
+
+[node name="Spiritboxer" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="SlashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+attenuation = 1.18921
+
+[node name="HitEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.397758, 6.461 )
+shape = SubResource( 11 )
